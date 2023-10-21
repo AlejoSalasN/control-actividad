@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import Header from "./src/components/Header";
 import Timer from "./src/components/Timer";
-import { Audio } from "expo-av";
+//import { Audio } from "expo-av";
 
 const colors = ["#F7DC6F", "#A2D9CE", "#D7BDE2"];
 
@@ -39,23 +39,26 @@ export default function App() {
   }, [isActive, time]);
 
   const handleStartStop = () => {
-    playSound();
+    //playSound();
     setIsActive(!isActive);
     setReinicio(true);
   };
 
   const handleReiniciar = () => {
+    //playSound();
     setTime(currentTime === 0 ? 25 * 60 : currentTime === 1 ? 5 * 60 : 15 * 60);
     setIsActive(false);
     setReinicio(false);
   };
 
-  const playSound = async () => {
+  //Descomentar la siguiente sección en caso de querer agregar sonido a los botones.
+
+  /*const playSound = async () => {
     const { sound } = await Audio.Sound.createAsync(
-      require("./assets/computer-click.mp3")
+      require("./assets/click.wav")
     );
     await sound.playAsync();
-  };
+  };*/
 
   return (
     <SafeAreaView
